@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: BLOG
+title: Blog
 slug: blog
 category: devlog
 menu: false
