@@ -5,7 +5,7 @@ subtitle: 네이버 블로그 / 티스토리 / 구글 블로그스팟/ 깃허브
 gh-repo: jmhmunhwan/jmhmunhwan.github.io
 gh-badge: [star, fork, follow]
 category : devlog
-tags: [Blog, 블로그]
+tags: blog
 comments: true
 ---
 
