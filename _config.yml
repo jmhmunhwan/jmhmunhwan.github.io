@@ -19,7 +19,7 @@ tagline:             Moonan
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
   아무것도 하고싶지 않지만
-  <br>그러다 평생 아무것도 못 할까봐
+  <br>그러다 평생 못 할까봐
   시작한 블로그
 
 # This should be the same author as first entry in `_data/authors.yml`
