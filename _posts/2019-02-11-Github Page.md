@@ -97,4 +97,6 @@ disqus_shortname:    jmhmunhwan
 </script>
 ```
 
+(  3. ~~config 등 수정~~ )
+
 결과 화면도 보여주고 싶지만 문제가 있어  https://jmhmunhwan.github.io/ 링크로 대체..
