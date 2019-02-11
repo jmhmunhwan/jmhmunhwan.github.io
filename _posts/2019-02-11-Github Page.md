@@ -39,14 +39,15 @@ comments: true
 우선 맘에 드는 테마를 가져오려고 해도, 이게 지적 재산권, 저작권 침해인지 확인을 해야한다.
 [박민(isme2n)님 깃허브 페이지 라이센스](https://github.com/isme2n/isme2n.github.io/blob/master/LICENSE.md)
 확인해보니 `MIT License`라 편히 사용해도 되는 것 같다. 그래도 많은 사람들이 댓글로 써도 되는지 물어보고 사용하는 걸로 보인다.
-(  1. ~~라이센스 확인~~ )
+
+>(  1. ~~라이센스 확인~~ )
 
 fork 하는 법은 [박민(isme2n)님 깃허브 페이지](https://isme2n.github.io/) 여기서 fork 버튼만 누르면 된다.
 
 그리고 깃허브 페이지는 ``본인계정``.github.io 로만 만들어지므로 ``Settings``에서 Repository 를 Rename 해주면 된다.
 <br>(ex. https://jmhmunhwan.github.io/)
 
-(  2. ~~fork~~ )
+>(  2. ~~fork~~ )
 
 fork 받은 것들을 살펴보면 수정해야 할 것들이 많다. 우선 [_config.yml 파일](https://github.com/jmhmunhwan/jmhmunhwan.github.io/blob/master/_config.yml)
 에 공용적으로 쓰이는 환경 설정 정보들이 많으므로 이걸 수정했다. 살펴보니 **댓글**은 [DISQUS](https://disqus.com/)로, 
@@ -94,6 +95,6 @@ disqus_shortname:    jmhmunhwan
 </script>
 ```
 
-(  3. ~~config 등 수정~~ )
+>(  3. ~~config 등 수정~~ )
 
 결과 화면도 보여주고 싶지만 문제가 있어  https://jmhmunhwan.github.io/ 링크로 대체..
