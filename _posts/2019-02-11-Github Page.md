@@ -54,13 +54,13 @@ fork 받은 것들을 살펴보면 수정해야 할 것들이 많다. 우선 [_c
 **통계**는 [Google Analytics](https://analytics.google.com/) 로 사용하고 있다.
 나도 해당 기능을 쓰고 싶으니 id 같은 값만 내걸로 바꿔서 쓰면 될 듯 하다. 
 
-```
+```javascript
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-134212552-1
+google_analytics:
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    jmhmunhwan
+disqus_shortname:
 ```
 
 그리고 [_includes/contents.html](https://github.com/jmhmunhwan/jmhmunhwan.github.io/blob/master/_includes/contents.html) 에서는
@@ -72,7 +72,7 @@ disqus_shortname:    jmhmunhwan
                 <!-- 블로그-하단-반응형 -->
                 <ins class="adsbygoogle"
                     style="display:block; width:98%; height:300px;"
-                    data-ad-client="ca-pub-3014668630648493"
+                    data-ad-client="             "
                     data-ad-slot="2380354290"
                     data-ad-format="auto"></ins>
                 <script>
@@ -87,7 +87,7 @@ disqus_shortname:    jmhmunhwan
 <!-- 블로그-하단-반응형 -->
 <ins class="adsbygoogle"
     style="display:block; width:98%; height:300px;"
-    data-ad-client="ca-pub-3014668630648493"
+    data-ad-client="             "
     data-ad-slot="2380354290"
     data-ad-format="auto"></ins>
 <script>
