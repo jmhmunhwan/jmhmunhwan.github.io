@@ -122,7 +122,7 @@ comments: true
 ```
 
 tag 에 적어놓은 ``blog`` 처럼 기존에 없는 걸 추가할 경우에는 해당 폴더에 다른 md 파일들을 보고 양식을 맞추어 새롭게 하나 만들어주면 된다.
-(ex. [devlog-blog.md 파일](https://github.com/jmhmunhwan/jmhmunhwan.github.io/edit/master/_featured_tags/devlog-blog.md)
+(ex. [devlog-blog.md 파일](https://github.com/jmhmunhwan/jmhmunhwan.github.io/edit/master/_featured_tags/devlog-blog.md) )
 
 ```
 ---
