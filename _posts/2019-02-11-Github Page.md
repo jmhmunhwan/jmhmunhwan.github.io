@@ -9,9 +9,6 @@ tags: blog
 comments: true
 ---
 
-깃허브 페이지 작성해보기
-======================
-
 블로그 작성을 해보기로 생각한 후에 저번에 작성한 [어떤 블로그를 쓸 것인가?](https://jmhmunhwan.github.io/devlog/2019/01/21/How-I-Can-Choose-Appropriate-Blog/)
 포스트처럼 여러 블로그 플랫폼을 알아보고, 깃허브 페이지를 이용하기로 결정했다. 
 
