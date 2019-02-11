@@ -98,3 +98,42 @@ disqus_shortname:
 >(  3. ~~config 등 수정~~ )
 
 결과 화면도 보여주고 싶지만 문제가 있어  https://jmhmunhwan.github.io/ 링크로 대체..
+
+위 방법으로 하면 원작자님이 쓰던 것들도 다 들고와서 좀 난감하다. About.html 같은 건 수정하면 되지만, 포스트들은 하나씩 삭제해야한다.
+이건 **Git**으로 commit, push 해야겠다.
+
+
+### 포스팅하기
+
+`_posts` 폴더에 md 파일을 작성하면 알아서 포스팅이 된다. 테마별로 각각 js를 이용해서 포스팅 되도록 코딩되어 있기 때문에 맞춰서 하면 된다.
+2019-02-11-Github Page.md 처럼 YYYY-MM-DD-TITLE.md 로 저장하면 된다. 이 테마에서는 ``_featured_categories``, ``_featured_tags`` 로 카테고리를 구별하게 만들어져있다. 대분류가 카테고리, 소분류가 태그로 이해하면 된다. 실제 적용은 아래처럼 하면 된다.
+
+```
+---
+layout: post
+title: 깃허브 페이지 작성해보기
+subtitle: 5분만에 따라해보기
+gh-repo: jmhmunhwan/jmhmunhwan.github.io
+gh-badge: [star, fork, follow]
+category : devlog
+tags: blog
+comments: true
+---
+```
+
+tag 에 적어놓은 ``blog`` 처럼 기존에 없는 걸 추가할 경우에는 해당 폴더에 다른 md 파일들을 보고 양식을 맞추어 새롭게 하나 만들어주면 된다.
+(ex. [devlog-blog.md 파일](https://github.com/jmhmunhwan/jmhmunhwan.github.io/edit/master/_featured_tags/devlog-blog.md)
+
+```
+---
+layout: tag-blog
+title: Blog
+slug: blog
+category: devlog
+menu: false
+order: 3
+---
+```
+
+마크다운 사용법에 대해서는 따로 기술하겠다.
+이만 뿅.
