@@ -54,7 +54,7 @@ fork 받은 것들을 살펴보면 수정해야 할 것들이 많다. 우선 [_c
 **통계**는 [Google Analytics](https://analytics.google.com/) 로 사용하고 있다.
 나도 해당 기능을 쓰고 싶으니 id 같은 값만 내걸로 바꿔서 쓰면 될 듯 하다. 
 
-```javascript
+```html
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:
@@ -66,7 +66,7 @@ disqus_shortname:
 그리고 [_includes/contents.html](https://github.com/jmhmunhwan/jmhmunhwan.github.io/blob/master/_includes/contents.html) 에서는
 **구글 애드센스**가 적용되어 있다. 아래와 같이 ``data-ad-client``를 내걸로 바꿔주면 끝.
 
-```javascript
+```html
 <div class="markdown-body">
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- 블로그-하단-반응형 -->
