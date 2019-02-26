@@ -3,7 +3,7 @@ layout: post
 title:  "React.js 시작하기"
 subtitle:   "React 환경설정"
 categories: devlog
-tags: javascript react 리액트 환경설정
+tags: react 리액트 환경설정
 ---
 
 # 리액트가 뭐죠?
