@@ -5,5 +5,5 @@ slug: react
 category: devlog
 menu: false
 order: 1
-header-img: "/img/favicon.ico"
+header-img: "/img/react.png"
 ---
