@@ -102,6 +102,17 @@ disqus_shortname:
 위 방법으로 하면 원작자님이 쓰던 것들도 다 들고와서 좀 난감하다. About.html 같은 건 수정하면 되지만, 포스트들은 하나씩 삭제해야한다.
 이건 **Git**으로 commit, push 해야겠다.
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-3014668630648493"
+     data-ad-slot="3873336698"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 
 ### 포스팅하기
 
