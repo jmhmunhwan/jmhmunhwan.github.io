@@ -44,7 +44,7 @@ IE에 대한 지원이 필요없다면 woff나 그보다 더 압축률이 좋은
      data-ad-format="fluid"
      data-ad-layout="in-article"
      data-ad-client="ca-pub-3014668630648493"
-     data-ad-slot="3873336698"></ins>
+     data-ad-slot="7229973781"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

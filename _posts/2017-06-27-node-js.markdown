@@ -59,7 +59,7 @@ Node js와 비동기 프로그래밍에 대한 이야기를 적어보려한다. 
      data-ad-format="fluid"
      data-ad-layout="in-article"
      data-ad-client="ca-pub-3014668630648493"
-     data-ad-slot="3873336698"></ins>
+     data-ad-slot="7229973781"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
