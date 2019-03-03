@@ -39,8 +39,8 @@ D3등과 같은 툴로 인해 정보를 시각화 하는데에 많은 사람들�
      style="display:block; text-align:center;"
      data-ad-format="fluid"
      data-ad-layout="in-article"
-     data-ad-client="ca-pub-9134477021095729"
-     data-ad-slot="3873336698"></ins>
+     data-ad-client="ca-pub-3014668630648493"
+     data-ad-slot="7229973781"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
