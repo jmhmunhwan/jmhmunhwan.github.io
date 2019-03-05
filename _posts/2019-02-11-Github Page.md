@@ -64,7 +64,9 @@ disqus_shortname:
 ```
 
 그리고 [_includes/contents.html](https://github.com/jmhmunhwan/jmhmunhwan.github.io/blob/master/_includes/contents.html) 에서는
-**구글 애드센스**가 적용되어 있다. 아래와 같이 ``data-ad-client``를 내걸로 바꿔주면 끝.
+**구글 애드센스**가 적용되어 있다. 아래와 같이 ``data-ad-client``, ``data-ad-slot``을 내걸로 바꿔주면 끝.
+이 파일 외에도 ''right-side.html'',''post.html'' 에도 만들어져있다.
+애드센스를 제대로 적용하려면 가입하고, 사이트 검증하고, 광고 단위를 만들고 적용해야하는데, 이것도 다음에 따로 포스팅해야겠다.
 
 ```html
 <div class="markdown-body">
@@ -73,7 +75,7 @@ disqus_shortname:
                 <ins class="adsbygoogle"
                     style="display:block; width:98%; height:300px;"
                     data-ad-client="             "
-                    data-ad-slot="2380354290"
+                    data-ad-slot="        "
                     data-ad-format="auto"></ins>
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -88,12 +90,27 @@ disqus_shortname:
 <ins class="adsbygoogle"
     style="display:block; width:98%; height:300px;"
     data-ad-client="             "
-    data-ad-slot="2380354290"
+    data-ad-slot="        "
     data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 ```
+잘 적용되었나 보자.
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- default -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3014668630648493"
+     data-ad-slot="3073032858"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
 
 >(  3. ~~config 등 수정~~ )
 
@@ -101,17 +118,6 @@ disqus_shortname:
 
 위 방법으로 하면 원작자님이 쓰던 것들도 다 들고와서 좀 난감하다. About.html 같은 건 수정하면 되지만, 포스트들은 하나씩 삭제해야한다.
 이건 **Git**으로 commit, push 해야겠다.
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-format="fluid"
-     data-ad-layout="in-article"
-     data-ad-client="ca-pub-3014668630648493"
-     data-ad-slot="7229973781"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 ### 포스팅하기
