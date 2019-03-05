@@ -59,17 +59,7 @@ yarn start
 
 이렇게하니 바로  http://localhost:3000/ 가 띄워지고 거기서 리액트 로고가 열심히 돌고 있다. 이러면 **리액트 환경설정이 끝났다**. 이제 js나 css를 수정하면 나만의 웹 페이지를 개발할 수 있게 된다. Yarn이 설치가 안되어 있는 경우는 어떻게 뜨는 지 확인하기가 좀 귀찮으니 Node.js 에서 Yarn 설치하는 방법만 추가로 작성하겠다.
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- default -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3014668630648493"
-     data-ad-slot="3073032858"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 ##### Node.js 에서 Yarn 설치하기
 
 ```
