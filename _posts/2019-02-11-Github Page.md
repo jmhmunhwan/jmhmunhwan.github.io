@@ -65,7 +65,7 @@ disqus_shortname:
 
 그리고 [_includes/contents.html](https://github.com/jmhmunhwan/jmhmunhwan.github.io/blob/master/_includes/contents.html) 에서는
 **구글 애드센스**가 적용되어 있다. 아래와 같이 ``data-ad-client``, ``data-ad-slot``을 내걸로 바꿔주면 끝.
-이 파일 외에도 ''right-side.html'',''post.html'' 에도 만들어져있다.
+이 파일 외에도 ``right-side.html``,``post.html`` 에도 만들어져있다.
 애드센스를 제대로 적용하려면 가입하고, 사이트 검증하고, 광고 단위를 만들고 적용해야하는데, 이것도 다음에 따로 포스팅해야겠다.
 
 ```html
@@ -96,6 +96,8 @@ disqus_shortname:
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 ```
+
+
 잘 적용되었나 보자.
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
