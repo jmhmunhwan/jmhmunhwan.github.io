@@ -7,6 +7,8 @@ tags: react 리액트 영화 순위
 ---
 
 [저번 포스팅](https://jmhmunhwan.github.io/devlog/2019/02/26/React-Dev-Env/)에서 리액트 환경 설정을 완료했다.
-이번에는 로고만 둥둥 떠있는 기본 페이지에서 벗어나 영화 랭킹을 보여주는 페이지를 만들어보자.
-시작하기 전에, 추천해주고 싶은 강의 사이트가 있다.
-[인프런](https://www.inflearn.com/)은 
+하지만 실행해보면 로고만 둥둥 떠있으니 이제 기본 페이지에서 벗어나 영화 랭킹을 보여주는 페이지를 만들어보자.
+[인프런](https://www.inflearn.com/)에서 노마드코더님의
+["리액트 처음이시라구요? React JS로 웹 서비스 만들기!"](https://www.inflearn.com/course/reactjs-web/)를 수강하면서 따라 만들어봤다.
+총 강의 시간은 몇 시간 안되니 하루 안에 완성이 가능하다. 
+
