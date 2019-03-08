@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "React.js 시작하기"
-subtitle:   "React 환경설정"
+title:  "React.js 환경설정"
+subtitle:   "리액트 개발 환경"
 categories: devlog
 tags: react 리액트 환경설정
 ---
