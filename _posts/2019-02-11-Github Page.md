@@ -98,25 +98,25 @@ disqus_shortname:
 ```
 
 
-잘 적용되었나 보자.
+잘 적용되었나 보자. 잘 적용되었으면 아래에 광고가 나올 것이다.
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- default -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3014668630648493"
-     data-ad-slot="3073032858"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+<div class="markdown-body">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- default -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3014668630648493"
+       data-ad-slot="3073032858"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
 
 
 
 >(  3. ~~config 등 수정~~ )
-
-결과 화면도 보여주고 싶지만 문제가 있어  https://jmhmunhwan.github.io/ 링크로 대체..
 
 위 방법으로 하면 원작자님이 쓰던 것들도 다 들고와서 좀 난감하다. About.html 같은 건 수정하면 되지만, 포스트들은 하나씩 삭제해야한다.
 이건 **Git**으로 commit, push 해야겠다.
