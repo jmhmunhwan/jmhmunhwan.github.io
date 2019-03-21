@@ -98,11 +98,14 @@ return React.createElement('div', {className: 'shopping-list'},
 ### 코딩 시작하기
 
 [튜토리얼 환경설정](##-튜토리얼-환경설정)에서 1.CodePen으로 시작한 경우에는 
-[이거](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)를 눌러 시작하면 된다.
+[여기](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)를 눌러 시작하면 된다.
 2. 로컬에서 시작한 경우에는 VSC에서 프로젝트 폴더를 열어서 시작하자.
+CSS를 공부할 건 아니라서 CSS는 튜토리얼에서 제공해주는 그대로 사용하자.
+
 <details>
 
 <summary><b>로컬에서 환경설정하기</b></summary>
+
 
 1. [Node.js 최신버전 설치](https://nodejs.org/en/)
 2. 프로젝트 폴더를 구성할 위치에서 아래 명령어 실행
@@ -145,4 +148,39 @@ import './index.css';
 
 </details>
 
+코드들을 살펴보면, 튜토리얼은 3개의 컴포넌트로 구성되어 있다.
+
+- Square
+- Board
+- Game
+
+Square 컴포넌트에는 하나의 `<button>` 태그가 있고, Board 컴포넌트를 분석해보면 9개의 Square 컴포넌트가 들어간다.
+우리는 `/* TODO */`와 `/* status */`를 채워서 게임을 완성시키자.
+
+### props를 통해 데이터 전달하기
+
+튜토리얼에서는 복사/붙여넣기를 하지말고 직접 타이핑하는 것이 개발 실력 향상에 도움이 될 거라고 한다.
+
+우선, `Board` class의 `renderSquare` 메소드를 다음 내용으로 바꾸자:
+
+```javascript
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square value={i} />;
+  }
+```
+
+`Sqaure`의 `render` 메소드에서 `/* TODO */` 를 `{this.props.value}` 로 바꾸자;
+
+```javascript
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {this.props.value}
+      </button>
+    );
+  }
+}
+```
 
