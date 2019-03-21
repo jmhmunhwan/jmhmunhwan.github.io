@@ -213,6 +213,11 @@ class Square extends React.Component {
 ```
 
 `Square`를 누르면 click 메세지와 함께 경고창이 뜬다. 여기서는 `=>` 처럼 ES6 문법인 arrow function이 사용되었다.
+원래 목표는 사각형에 `X`를 띄우는 거란 걸 잊지말자. 이걸 위해서 `state`를 사용할 것이다.
+리액트 컴포넌트는 생성자(constructor)에 `this.state` 를 써서 상태를 저장할 수 있다.
+현재의 값을 `this.state`에 저장하고, `Square`가 클릭되었을 때 이 값을 바꿔주자.
+
+우선, `Square` 컴포넌트에 생성자를 추가하고 초기화해주자:
 
 ```javascript
 class Square extends React.Component {
@@ -232,4 +237,44 @@ class Square extends React.Component {
   }
 }
 ```
+
+> 여기서 잠깐!
+모든 생성자를 가지는 리액트 컴포넌트 클래스는 반드시 `super(props)` 를 호출해야한다.
+
+이제, `Square`의 `render` 메소드를 수정하자. 
+
+- <button> 태그의 `this.props.value` 를 `this.state.value` 로 교체
+- `onClick={...}` 내용을 `onClick={() => this.setState({value: 'X'})}` 로 교체
+- 가독성을 위해 `className` `onClick` 라인 분리
+  
+완성본 :
+
+```javascript
+class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+
+  render() {
+    return (
+      <button
+        className="square"
+        onClick={() => this.setState({value: 'X'})}
+      >
+        {this.state.value}
+      </button>
+    );
+  }
+}
+```
+
+`Square`를 클릭하면 `render` 메소드의 `onClick`으로 인해 `Square`의 `this.state.value` 가 `X`가 될 것이다.
+컴포넌트의 `setState`를 호출하면, 리액트는 자동적으로 하위 컴포넌트(혹은 자식, child)의 것도 바꾼다.
+실행해서 클릭했을 때, 사각형에 `X`가 표시되는 지 확인하자.
+안될 경우, [링크](https://codepen.io/gaearon/pen/VbbVLg?editors=0010) 확인!
+
+### 개발 툴
 
