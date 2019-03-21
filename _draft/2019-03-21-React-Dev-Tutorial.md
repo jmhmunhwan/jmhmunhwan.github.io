@@ -20,7 +20,7 @@ tags: react 리액트 tutorial 튜토리얼
 
 ## 튜토리얼 섹션
 
-튜토리얼은 아래와 같이 구성되어 있다.
+튜토리얼은 아래와 같이 구성되어 있다고한다.
 
 - Setup for the Tutorial will give you a **starting point** to follow the tutorial.
 - Overview will teach you **the fundamentals** of React: components, props, and state.
@@ -50,19 +50,99 @@ CodePen은 굳이 환경설정을 하지 않아도 웹 상에서 쉽게 코딩�
 
 **두 가지 방식**이 있는데, 하나는 앞서 말한 **CodePen**에서 진행하는 방법, 하나는 **로컬**에서 진행하는 방법이다.
 로컬에서 진행하려면 Visual Studio Code와 같은 에디터, Node.js 설치가 필요한데, 이건 기존에 작성한 나의 포스트로 대체하겠다.
+로컬에서 진행하는 것은 [코딩 시작하기](###-코딩-시작하기)에서 더 자세히 쓰겠다.
 
   1. [CodePen으로 웹에서 시작하기](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)
   2. [로컬에서 시작하기](https://jmhmunhwan.github.io/devlog/2019/02/26/React-Dev-Env/)
   
 ## 개요
 
-환경설정이 다 끝났으면 이제 본격적으로 시작해보자.
+환경설정이 다 끝났으면 이제 본격적으로 시작해보자. **개요**에서는 대략적으로 리액트와 리액트 문법에 대해서 작성되었다.
 
 ### 리액트가 뭐죠?
 
+리액트는 유저 인터페이스를 만들어주는 JavaScript 라이브러리다. 리액트는 components 라고 불리는 각각의 조각을 붙여 화면을 만들게 도와준다.
+리액트는 여러 컴포넌트 종류가 있는데, `React.Component` 로 설명을 하려고 한다.
 
+```javascript
+class ShoppingList extends React.Component {
+  render() {
+    return (
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
+    );
+  }
+}
 
+// Example usage: <ShoppingList name="Mark" />
+```
 
+리액트는 컴포넌트를 통해 화면을 구성하게 되는데, 데이터가 바뀔 때 `state`와 `props`(properties의 준말)를 통하면
+리액트가 알아서 효율적으로 데이터를 업데이트하여 화면에 다시 보여주게 된다.
+`render` 메소드(method)는 return 에 화면에 보여줄 것을 담게 되는데, 리액트에서는 **React element**가 된다.
+이것을 앞서 작성한 JSX 방식으로도 할 수 있고, 아래와 같이 React API 를 이용할 수도 있다.(보통 **JSX를 추천!**)
 
+```javascript
+return React.createElement('div', {className: 'shopping-list'},
+  React.createElement('h1', /* ... h1 children ... */),
+  React.createElement('ul', /* ... ul children ... */)
+);
+```
+
+### 코딩 시작하기
+
+[튜토리얼 환경설정](##-튜토리얼-환경설정)에서 1.CodePen으로 시작한 경우에는 
+[이거](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)를 눌러 시작하면 된다.
+2. 로컬에서 시작한 경우에는 VSC에서 프로젝트 폴더를 열어서 시작하자.
+<details>
+
+<summary><b>로컬에서 환경설정하기</b></summary>
+
+1. [Node.js 최신버전 설치](https://nodejs.org/en/)
+2. 프로젝트 폴더를 구성할 위치에서 아래 명령어 실행
+
+```bash
+npx create-react-app my-app
+```
+
+3.  `src/` 폴더 아래에 있는 파일들 전체 삭제(src 폴더 자체는 남겨두자). 아래 명령어를 순서대로 실행해도 된다.
+
+```bash
+cd my-app
+cd src
+
+# Mac / Linux:
+rm -f *
+
+# Windows:
+del *
+
+# 프로젝트 폴더로 복귀
+cd ..
+```
+
+4. [CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100)를 복사해서 `src/index.css` 에 저장
+
+5. [JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)를 복사해서 `src/index.js` 에 저장
+
+6. `src/index.js`에 아래의 3줄 추가하기:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+```
+
+그러면 프로젝트 폴더에서 `npm start` 명령을 통해 실행이 가능하다. 실행 후, `http://localhost:3000` 에서 3x3의 사각형들이 보이면 끝.
+
+![완료 화면](https://ko.reactjs.org/static/tictac-empty-1566a4f8490d6b4b1ed36cd2c11fe4b6-a9336.png)
+
+</details>
 
 
