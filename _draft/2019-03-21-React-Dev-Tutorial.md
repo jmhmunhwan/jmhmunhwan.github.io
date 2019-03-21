@@ -143,6 +143,7 @@ import './index.css';
 ```
 
 그러면 프로젝트 폴더에서 `npm start` 명령을 통해 실행이 가능하다. 실행 후, `http://localhost:3000` 에서 3x3의 사각형들이 보이면 끝.
+나중에 코드를 수정하고 저장하면 별도로 명령을 재실행하지 않아도 반영된다.
 
 ![완료 화면](https://ko.reactjs.org/static/tictac-empty-1566a4f8490d6b4b1ed36cd2c11fe4b6-a9336.png)
 
@@ -183,4 +184,31 @@ class Square extends React.Component {
   }
 }
 ```
+
+![Before](https://ko.reactjs.org/static/tictac-empty-1566a4f8490d6b4b1ed36cd2c11fe4b6-a9336.png)
+
+![After](https://ko.reactjs.org/static/tictac-numbers-685df774da6da48f451356f33f4be8b2-be875.png)
+
+`Before`에서 `After`로 화면이 바뀌었으면 성공이다. `Square`가 상위 컴포넌트인(혹은 parent) `Board`에서 데이터를 받아 화면으로 보여주는 방식이다.
+만약, 결과가 다르다면 [링크](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)의 코드와 비교하여 뭘 빠트렸는 지 확인하면 되겠다.
+
+### 컴포넌트에 이벤트 추가하기
+
+이제 `Square`를 클릭했을 때 `X`를 보여주도록 만들어보자. `Square`의 `render` 메소드를 다음과 같이 수정하자:
+
+```javascript
+class Square extends React.Component {
+ render() {
+   return (
+     <button className="square" onClick={() => alert('click')}>
+       {this.props.value}
+     </button>
+   );
+ }
+}
+```
+
+`Square`를 누르면 click 메세지와 함께 경고창이 뜬다. 여기서는 `=>` 처럼 ES6 문법인 arrow function이 사용되었다.
+
+
 
