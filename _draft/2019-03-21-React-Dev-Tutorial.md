@@ -185,7 +185,11 @@ class Square extends React.Component {
 }
 ```
 
+[Before]
+
 ![Before](https://ko.reactjs.org/static/tictac-empty-1566a4f8490d6b4b1ed36cd2c11fe4b6-a9336.png)
+
+[After]
 
 ![After](https://ko.reactjs.org/static/tictac-numbers-685df774da6da48f451356f33f4be8b2-be875.png)
 
@@ -210,5 +214,22 @@ class Square extends React.Component {
 
 `Square`를 누르면 click 메세지와 함께 경고창이 뜬다. 여기서는 `=>` 처럼 ES6 문법인 arrow function이 사용되었다.
 
+```javascript{2-7}
+class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
 
+  render() {
+    return (
+      <button className="square" onClick={() => alert('click')}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+```
 
