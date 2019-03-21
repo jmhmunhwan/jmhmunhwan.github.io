@@ -214,7 +214,7 @@ class Square extends React.Component {
 
 `Square`를 누르면 click 메세지와 함께 경고창이 뜬다. 여기서는 `=>` 처럼 ES6 문법인 arrow function이 사용되었다.
 
-```javascript{2-7}
+```javascript
 class Square extends React.Component {
   constructor(props) {
     super(props);
