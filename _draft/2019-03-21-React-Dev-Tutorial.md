@@ -31,7 +31,7 @@ tags: react 리액트 tutorial 튜토리얼
 
 - [튜토리얼 환경설정](##-튜토리얼-환경설정)은 **어떻게 리액트를 시작할 지** 알려줄 것이다.
 - [개요](##-개요)에서는 **리액트의 기본**인 **Components, props, state**에 대해 알려줄 것이다.
-- [게임 완성하기]()에서는 **리액트 개발에서 자주 쓰이는 기술**들에 대해 배울 수 있다.
+- [게임 완성하기](##-게임-완성하기)에서는 **리액트 개발에서 자주 쓰이는 기술**들에 대해 배울 수 있다.
 - [시간 여행 추가하기]()에서는 **리액트만의 강점**에 대해 더 깊게 이해할 수 있다.
 
 ### 그래서 우리가 만드는 게 뭐죠?
@@ -277,4 +277,81 @@ class Square extends React.Component {
 안될 경우, [링크](https://codepen.io/gaearon/pen/VbbVLg?editors=0010) 확인!
 
 ### 개발 툴
+
+[크롬](https://www.google.com/intl/ko_ALL/chrome/)이나 [파이어폭스](https://www.mozilla.org/ko/firefox/new/)에서 
+리액트로 만든 페이지를 검사할 수 있다.
+
+![검사 화면](https://ko.reactjs.org/static/devtools-878d91461c78d8f238e116477dfe0b46-6ca3b.png)
+
+리액트 개발툴에서 `마우스 우클릭-검사`를 하면 브라우저 오른쪽에 탭이 열리면서 `props`나 `state`를 확인할 수 있다.
+
+CodePen에서 진행하는 방법:
+
+1. 로그인 / 회원가입 후 e-mail 인증(스팸 방지)
+2. `Fork` 버튼 클릭
+3. `Change View` 클릭 후 `Debug mode` 선택
+
+## 게임 완성하기
+
+이제는 `Square`를 클릭했을 때 `X` 와 `O`를 번갈아가면서 나오게하고, 승자를 판단하는 것을 추가해야한다.
+
+### `state`를 부모(parent)에게 전달하기
+
+지금은 각각의 `Square`가 `state`를 가지고 있다. 누가 승자인지 판단하기 위해 9개의 `Square`의 `state`를 한 곳에서 체크해야한다.
+
+`Board`가 각각의 `Square`의 `state`를 확인할 수도 있지만 이해하기가 좀 어렵고, 버그 걸리기 쉽고, refactor 하기 어려워 추천하지 않는다.
+대신에, 우리는 각각의 `Square`가 아닌 `Board`에 게임의 `state`를 저장할 것이다. 그리고 이전에 우리가 각각의 사각형의 번호를 넘겼던 것처럼
+`Board`가 `Square`에 `props`를 전달할 것이다.
+
+**여러 자식들로부터 데이터를 가져오거나, 자식 컴포넌트 간 데이터를 주고 받아야할 때 공통된 `state`를 부모 컴포넌트에 선언해야한다.
+부모 컴포넌트는 `props`를 통해 `state`를 자식 컴포넌트에게 전달할 수 있다. 이걸로 자식 컴포넌트들이 서로 동기화(sync) 될 수 있다.**
+
+리액트 컴포넌트를 refactor 할 때, `state`를 부모 컴포넌트로 올리는 것을 자주 하게 될 것이니 이번 기회에 해보는 것이 좋다.
+
+`Board`에 생성자를 추가하고, 생성자 `state`에 9개의 `Square`에 대응되도록 `squares`라는 사이즈 9짜리 배열을 선언하고 null 로 초기화하자:
+
+```javascript
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  renderSquare(i) {
+    return <Square value={i} />;
+  }
+```
+
+게임이 진행되면 `this.state.squares`는 이런 모습이 될 것이다:
+
+```javascript
+[
+  'O', null, 'X',
+  'X', 'X', 'O',
+  'O', null, null,
+]
+```
+
+지금 `Board`의 `renderSquare` 메소드는 이럴 것이다:
+```javascript
+  renderSquare(i) {
+    return <Square value={i} />;
+  }
+```
+
+이건 처음에 우리가 [value를 props를 통해 전달](###-props를-통해-데이터-전달하기)해서 **사각형에 0부터 8까지 숫자를 넣을 때** 작성한 코드이다.
+하지만 우리가 그 다음에 클릭한 경우 `X`의 `value`를 가진 `state`를 가지도록 했고,
+ `{this.state.value}` 를 읽도록 했기 때문에 숫자는 볼 수 없었다.
+
+이제 `Board`의 `renderSquare` 메소드를 수정해서 우리가 만든 `squares` 배열을 이용하도록 할 것이다.
+
+```javascript
+ renderSquare(i) {
+    return <Square value={this.state.squares[i]} />;
+  }
+```
+
+[현재까지 코드 완성본](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)
 
