@@ -295,7 +295,7 @@ CodePen에서 진행하는 방법:
 
 이제는 `Square`를 클릭했을 때 `X` 와 `O`를 번갈아가면서 나오게하고, 승자를 판단하는 것을 추가해야한다.
 
-### `state`를 부모(parent)에게 전달하기
+### `state`를 부모(parent) 컴포넌트에게 전달하기
 
 지금은 각각의 `Square`가 `state`를 가지고 있다. 누가 승자인지 판단하기 위해 9개의 `Square`의 `state`를 한 곳에서 체크해야한다.
 
@@ -342,7 +342,7 @@ class Board extends React.Component {
 ```
 
 이건 처음에 우리가 [value를 props를 통해 전달](###-props를-통해-데이터-전달하기)해서 **사각형에 0부터 8까지 숫자를 넣을 때** 작성한 코드이다.
-하지만 우리가 그 다음에 클릭한 경우 `X`의 `value`를 가진 `state`를 가지도록 했고,
+하지만 우리가 [그 다음에 클릭한 경우 `X`의 `value`를 가진 `state`를 가지도록](###-컴포넌트에-이벤트-추가하기) 했고,
  `{this.state.value}` 를 읽도록 했기 때문에 숫자는 볼 수 없었다.
 
 이제 `Board`의 `renderSquare` 메소드를 수정해서 우리가 만든 `squares` 배열을 이용하도록 할 것이다.
@@ -354,4 +354,124 @@ class Board extends React.Component {
 ```
 
 [현재까지 코드 완성본](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)
+
+이제는 `Square`를 클릭했을 때의 이벤트를 바꿔줘야한다.(지금은 `X`값 세팅만 있다.) 그러기 위해서는 `Board`의 `state`를 업데이트 해줘야한다.
+하지만 `state`는 해당 컴포넌트 내부에 선언되어 있어 `private`하기 때문에, `Square`가 `Board`의 `state`를 직접 변경할 수는 없다. 
+대신에, 우리는 함수(function)를 호출하는 것으로 이를 해결할 것이다.
+
+`Board`의 `renderSquare`를 아래와 같이 바꾸자:
+
+```javascript
+renderSquare(i) {
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
+  }
+```
+
+이제 우리는 `Board`에서 `Square`로 2개의 `props`를 내려줄 것이다: `value`와 `onClick`.
+`onClick` 이란 `prop`은 `Square`가 클릭 되었을 때 호출 될 것이다.
+그리고 `Square`에 아래 3가지를 수정하자:
+
+- `Square`의 `render` 메소드에서 `this.state.value`를 `this.props.value`로 변경
+- `Square`의 `render` 메소드에서 `this.setState()`를 `this.props.onClick()`으로 변경
+- `Square`의 생성자 삭제(이제 게임의 `state`를 여기서 관리하지 않는다)
+
+다 반영하면, `Square` 컴포넌트는 이렇게 될 것이다:
+
+```javascript
+class Square extends React.Component {
+  render() {
+    return (
+      <button
+        className="square"
+        onClick={() => this.props.onClick()}
+      >
+        {this.props.value}
+      </button>
+    );
+  }
+}
+```
+
+`Square`를 클릭했을 때, 어떻게 동작하게 되는 지 살펴보자:
+
+1. `<button>` 안의 `onClick`이 리액트가 클릭 이벤트 리스너를 세팅하도록 명령한다.
+2. 버튼이 클릭되었을 때, 리액트는 `Square`의 `render()`메소드 안에 있는 `onClick` 이벤트 핸들러를 호출한다.
+3. 이벤트 핸들러는 `this.props.onClick()`을 호출한다. `Square`의 `onClick` prop은 `Board`에서 선언되어 있다.
+4. 클릭되었을 때 `Board`가 `Square`로 `onClick={() => this.handleClick(i)}` 하도록 했기때문에, `Square`는 `this.handleClick(i)`를 호출한다.
+5. 아직 `handleClick()` 메소드를 구현하지 않아서 사각형을 클릭하면 다음 에러가 발생할 것이다. 
+``TypeError: _this3.handleClick is not a function''
+
+`<button>`은 built-in 컴포넌트이기 때문에 `onClick` 을 써도 리액트가 이해할 수 있다.
+하지만 `Square`처럼 커스텀 컴포넌트(이름을 새로 만든 경우)는 `Square`의 `onClick`prop이나 `Board`의 `handleClick` 메소드 중 아무거나 써도 된다.
+리액트에서는 props의 경우에는 `on[Event]`로, method의 경우에는 `handle[Event]`를 쓰는 것이 일반적이다.
+
+자 그럼 `Board`클래스 안에 `handleClick` 이벤트를 구현해보자:
+
+```javascript
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+
+  renderSquare(i) {
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+    );
+  }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
+```
+
+[완성본 링크](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)
+
+수정을 하고 실행해보면, 이전처럼 클릭했을 때 사각형에 `X`가 표시된다. 그럼 여태까지 뭐한거지라고 생각할 수도 있겠다.
+다시 정리해보자면, 이전에는 각각의 `Square`에서 `state`를 관리했지만 이제는 `Board`에서 관리되기 때문에 여기서 승자를 결정할 수 있게 되었다.
+`Board`의 `state`를 `Square`가 내려 받아 사용하므로 `Square`는 이제 **controlled components**라고 할 수 있다.
+`Board`의 `state`가 바뀌면 `Square`는 자동적으로 `state`를 업데이트하여 다시 화면에 보여주게 된다.
+
+`handleClick`을 보면 `.slice()`라는 함수를 통해 기존 배열을 수정하는 대신 `squares`의 복사본을 만들게 되었다.
+이 이유는 다음 섹션에 설명하도록 하겠다.
+
+### 변경불가성이 중요한 이유
 
