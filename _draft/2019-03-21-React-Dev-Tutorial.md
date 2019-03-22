@@ -16,7 +16,7 @@ tags: react 리액트 tutorial 튜토리얼
 해보면 바로 tic tac toe 게임을 즐겨볼 수도 있다.)
 링크를 보면 알겠지만 전체적으로 JSX나 Babel, ES6 등 **문법적 내용**도 있고 Component, props, state와 같은 **리액트 개발에 필수적인 내용**도 있다.
 그래서 적지 않은 양이기 때문에 이 포스팅으로 편히 따라가길 바란다. 구성도 원본과 동일하게 하였다.
-(공식 홈페이지에 튜토리얼 한국어 버전을 contribute 할 수 있을까?)
+(튜토리얼 한글화 작업 중이긴 하다 https://reactjs-org-ko.netlify.com/tutorial/tutorial.html)
 
 ## 튜토리얼 섹션
 
