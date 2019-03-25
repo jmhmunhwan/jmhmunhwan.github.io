@@ -16,7 +16,7 @@ tags: react 리액트 tutorial 튜토리얼
 해보면 바로 tic tac toe 게임을 즐겨볼 수도 있다.)
 링크를 보면 알겠지만 전체적으로 JSX나 Babel, ES6 등 **문법적 내용**도 있고 Component, props, state와 같은 **리액트 개발에 필수적인 내용**도 있다.
 그래서 적지 않은 양이기 때문에 이 포스팅으로 편히 따라가길 바란다. 구성도 원본과 동일하게 하였다.
-(튜토리얼 한글화 작업 중이긴 하다 https://reactjs-org-ko.netlify.com/tutorial/tutorial.html)
+(튜토리얼 한글화 작업 중이긴 하다.  https://reactjs-org-ko.netlify.com/tutorial/tutorial.html)
 
 ## 튜토리얼 섹션
 
@@ -475,3 +475,42 @@ class Board extends React.Component {
 
 ### 변경불가성이 중요한 이유
 
+바로 앞에서 `squares` 배열을 그대로 쓰지 않고 `.slice()` 를 써서 배열의 복사본을 만들어서 접근하였다. 왜 그렇게 했는지 알아보면서 변경불가성에
+대해 이해해보자.
+
+데이터를 바꾸는 두 가지의 방식이 있는데, 하나는 데이터의 값을 직접 변경하는 것이다.
+다른 하나는 바뀌었으면 하는 값의 새로운 복사본으로 교체하는 것이다.
+
+##### 데이터의 값을 직접 변경
+
+```javascript
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+```
+##### 바뀌었으면 하는 값의 새로운 복사본으로 교체
+
+```javascript
+var player = {score: 1, name: 'Jeff'};
+
+var newPlayer = Object.assign({}, player, {score: 2});
+// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+
+// Or if you are using object spread syntax proposal, you can write:
+// var newPlayer = {...player, score: 2};
+```
+
+두 가지 방법의 결과는 동일하지만, 방식의 차이로 인해 아래의 차이가 난다.
+
+##### 히스토리 관리와 재사용
+
+우리는 나중에 [시간 여행 추가하기]()에서 `tic tac toe` 게임의 히스토리를 관리하고, 게임 진행을 "점프" 하게 할 것이다.
+이렇게 했던 것을 또 하거나 취소하는 기능은 어플리케이션에서 자주 쓰이기 때문에, 데이터의 값을 직접 변경하지 않는 것이 좋다.
+이전 버전의 값을 가지고 있을 수 있기 때문에 히스토리 관리나 재사용하기에 유리하다.
+
+##### 변화 감지
+
+값을 직접 바꿨으면 변화를 감지하는 건 어렵게 된다. 하지만 새로운 복사본으로 교체하는 방식은 과거의 데이터와 바꾼 데이터가 있기 때문에
+서로 비교하면 바뀌었는지 아닌지 알 수 있게 된다.
+
+##### 
